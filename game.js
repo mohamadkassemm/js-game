@@ -4,7 +4,6 @@ window.addEventListener("load", function () {
     const start = document.getElementById("start");
     const boundaries = document.getElementsByClassName("boundary");
     const end = this.document.getElementById("end");
-    result = document.getElementById("win")
     console.log(result)
     var score=0 ;
 
@@ -19,13 +18,14 @@ window.addEventListener("load", function () {
         function lose( ){
             for( var z=0; z<boundaries.length; z++){
                 boundaries[z].style.background= "red"  ; 
+                document.getElementById("result").innerHTML= "GAME OVER :("
+                
             }
         }
         end.addEventListener("pointerover",finish);
         function finish () {
             end.style.color="blue";
-            result= "Win"
-            result.background= "green"
+            document.getElementById("result").innerHTML= "CONGRATS YOU WON!!"
         }
     
 
