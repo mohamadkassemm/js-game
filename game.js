@@ -20,12 +20,9 @@ window.addEventListener("load", function () {
         function lose( ){
             for( var z=0; z<boundaries.length; z++){
                 boundaries[z].style.background= "red"  ; 
-                if(boundaries[z].addEventListener("pointerover",alert("Game Over"))){
-                    return
-                }
-                document.getElementById("result").innerHTML= "GAME OVER :("
                 
             }
+            
             smallBox.style.background="white" ;
             
 
