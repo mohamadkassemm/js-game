@@ -15,27 +15,10 @@ window.addEventListener("load", function () {
         document.getElementById("status").innerHTML= "Click on 'E' box to win"
 
         for(var i=0; i< boundaries.length; i++){
-            boundaries[i].addEventListener("mouseover",lose);     
+            boundaries[i].addEventListener("mouseover",lose);  
+            end.removeEventListener("click",finish);   
         }
-        function lose( ){
-            for( var z=0; z<boundaries.length; z++){
-                boundaries[z].style.background= "red"  ; 
-                end.removeEventListener("click",finish)
-            }
-            document.getElementById("status").innerHTML= "CLick on S to restart the Game :)"
-            document.getElementById("result").innerHTML= "Game Over! :("
-            
-        }}
 
-        end.addEventListener("click",finish);
-        function finish () {
-            end.style.color="blue";
-            document.getElementById("result").innerHTML= "CONGRATS YOU WON!!"
-            for(var m=0; m< boundaries.length; m++){
-                boundaries[m].removeEventListener("mouseover",lose);     
-            }
-
-        }
         start.addEventListener("click",reset);
         function reset ( ){
             start.style.color="blue";
@@ -47,7 +30,28 @@ window.addEventListener("load", function () {
 
             }
         }
+        
+        end.addEventListener("click",finish);
+        function finish () {
+            const boundaries = document.getElementsByClassName("boundary");
+            end.style.color="blue";
+            document.getElementById("result").innerHTML= "CONGRATS YOU WON!!"
+            for(var m=0; m< boundaries.length; m++){
+                boundaries[m].removeEventListener("mouseover",lose);     
+            }
+        }
 
+        function lose( ){
+            for( var z=0; z<boundaries.length; z++){
+                boundaries[z].style.background= "red"  ; 
+                end.removeEventListener("click",finish)
+            }
+            document.getElementById("status").innerHTML= "CLick on S to restart the Game :)"
+            document.getElementById("result").innerHTML= "Game Over! :("
+            
+        }}
+
+       
         
 
     
